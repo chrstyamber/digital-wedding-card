@@ -1,103 +1,96 @@
-<div id="top"></div>
-<!--
-*** Thanks for checking out our wedding invitation template.
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
+# Digital Wedding Card 💌
 
+A digital wedding invitation website created to make wedding invitations more beautiful, personal, and accessible.
 
 <!-- PROJECT LOGO -->
-<br />
+
 <div align="center">
-  <a href="https://ngodingsolusi.github.io/the-wedding-of-rehan-maulidan/">
-    <img src="images/readme/half%20circle.png" alt="Logo" width="120" height="120">
-  </a>
 
-  <h1 align="center">The Wedding</h1>
+  <h1>Digital Wedding Invitation</h1>
+  <br />
+  
+  [Explore the Invitation](YOUR_DEPLOYED_WEBSITE_URL)
 
-  <p align="center">
-    <strong>Rehan & Maulidan</strong>
-    <br />
-    <a href="https://ngodingsolusi.github.io/the-wedding-of-rehan-maulidan/">Explore the Invitation ! »</a>
-    <br />
-    <br />
-    <a href="https://github.com/rayhanyulanda">Rayhan Yulanda</a>
-    ·
-    <a href="https://github.com/maulidannashuha">Maulidan Nashuha</a>
-  </p>
 </div>
 
+---
+
 ## Features
-- Countdown to the date and count how many days have been
-- Save google calendar
-- Couple profile
-- Event date
-- Gallery photos
-- Quotes
-- Health protocol
-- RSVP with issue API
-- Music from youtube API
 
-<!-- The wedding -->
-## Maulidan Nashuha <img src="images/readme/man.png" width="30px">
+- 💍 Beautiful and responsive wedding invitation design
+- ⏳ Countdown to the wedding day
+- 📅 Add wedding event to Google Calendar
+- 💑 Couple profiles
+- 📍 Wedding event details and location
+- 📸 Photo gallery
+- 💌 RSVP functionality
+- 🎵 Background music
+- ✨ Personalized wedding quotes
 
+## Project Preview
 
+<!-- Add screenshots of your wedding invitation here -->
 
-Reach me around the web :
+![Wedding Invitation Preview](images/readme/preview.png)
 
-<a href="https://www.linkedin.com/in/maulidannashuha/" target="_blank">
-<img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn">
-</a>
-<a href="https://www.github.com/maulidannashuha/" target="_blank">
-<img src="https://img.shields.io/badge/Github-%fedcba.svg?&style=flat-square&logo=github&logoColor=white&color=black" alt="Github">
-</a>
-<a href="https://www.instagram.com/maulidannashuha/" target="_blank">
-<img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?&style=flat-square&logo=instagram&logoColor=white" alt="Instagram">
-</a>
-<!--<a href="https://twitter.com/ngodingsolusi" target="_blank">
-<img src="https://img.shields.io/badge/Twitter-%231DA1F2.svg?&style=flat-square&logo=twitter&logoColor=white" alt="Twitter">
-</a>
-<a href="https://dev.to/ABSphreak" target="_blank">
-<img src="https://img.shields.io/badge/DEV-%230A0A0A.svg?&style=flat-square&logo=DEV.to&logoColor=white" alt="DEV.to">
-</a>
-<a href="https://open.spotify.com/user/0170agi99s5hh187g7mtz245b" target="_blank">
-<img src="https://img.shields.io/badge/Spotify-%231ED760.svg?&style=flat-square&logo=spotify&logoColor=white" alt="Spotify">
-</a>-->
+---
 
+## Built With
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+- HTML
+- CSS
+- JavaScript
 
+## Getting Started
 
-## Rayhan Yulanda <img src="images/readme/woman.png" width="30px">
+To run this project locally:
 
+1. Clone the repository:
 
+   ```bash
+   git clone https://github.com/chrstyamber/digital-wedding-card.git
+   ```
 
-Reach me around the web :
+2. Navigate to the project directory:
 
-<a href="https://linkedin.com/in/rayhanyulanda">
-  <img alt="Rehan's Linkdein" width="22px" src="https://raw.githubusercontent.com/RayhanYulanda/rayhanyulanda/master/assets/icons/linkedin.png" />
-</a>
-<a target="_blank" href="https://github.com/rayhanyulanda">
-<img alt="Rehan's Github" width="22px" src="https://raw.githubusercontent.com/RayhanYulanda/rayhanyulanda/master/assets/icons/github.png" />
-</a>
-<a target="_blank" href="https://www.facebook.com/rayhanyulanda/">
-<img alt="Rehan's Facebook" width="22px" src="https://raw.githubusercontent.com/RayhanYulanda/rayhanyulanda/master/assets/icons/facebook.png" />
-</a>
-<a target="_blank" href="https://medium.com/@rayhanyulanda">
-<img alt="Rehan's Medium" width="22px" src="https://raw.githubusercontent.com/RayhanYulanda/rayhanyulanda/master/assets/icons/medium.png" />
-</a>
+   ```bash
+   cd digital-wedding-card
+   ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+3. Open the project in VS Code.
 
-### Our big thanks to :
-- [Flaticon](https://flaticon.com) - for the assets
-- [Freepik](https://freepik.com) - for the images
-- [Base Template](https://technext.github.io/wedding/)
+4. Run the project using Live Server or your preferred local development environment.
 
-### Show some :heart: with star the repo to support the project
-[![GitHub stars](https://img.shields.io/github/stars/ngodingsolusi/the-wedding-of-rehan-maulidan.svg?style=social&label=Star)](https://github.com/ngodingsolusi/the-wedding-of-rehan-maulidan)
-[![GitHub forks](https://img.shields.io/github/forks/ngodingsolusi/the-wedding-of-rehan-maulidan.svg?style=social&label=Fork)](https://github.com/ngodingsolusi/the-wedding-of-rehan-maulidan)
-[![GitHub watchers](https://img.shields.io/github/watchers/ngodingsolusi/the-wedding-of-rehan-maulidan.svg?style=social&label=Watch)](https://github.com/ngodingsolusi/the-wedding-of-rehan-maulidan)
-[![GitHub followers](https://img.shields.io/github/followers/maulidannashuha.svg?style=social&label=Follow)](https://github.com/maulidannashuha)
+---
 
-### NOTE : PLEASE KEEP THE COPYRIGHTS OR CREDITS
+## Author
+
+**Christy Amber Octobius**
+
+Software Engineer | Developer
+
+Connect with me:
+
+- [GitHub](https://github.com/chrstyamber)
+- [LinkedIn](https://www.linkedin.com/in/christy-amber-octobius-951a16184/)
+
+---
+
+## Acknowledgements
+
+Special thanks to the original template creators, designers, and contributors whose resources and inspiration helped make this project possible.
+
+- [Flaticon](https://www.flaticon.com/) – Icons and assets
+- [Freepik](https://www.freepik.com/) – Images and design resources
+
+---
+
+**If you find this project interesting, feel free to ⭐ the repository!**
+
+<p align="center">
+  Made with love, designed by
+  <a href="YOUR_PORTFOLIO_URL">yeonswol.design</a> ♡
+  <br />
+  <br />
+  <img src="images/ydlogo.png" alt="Yeonswol Design" width="200">
+</p>
