@@ -1870,6 +1870,15 @@ form label { font-weight: normal !important; }
   color: var(--brown);
   margin-bottom: 0.1rem;
 }
+.save-date-date {
+  margin: 0;
+  color: var(--accent);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
 
 #countdown-section {
   padding: 15rem 1.5rem;
@@ -1883,7 +1892,7 @@ form label { font-weight: normal !important; }
   align-items: center;
   gap: 14px;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: 34px;
   margin-bottom: 3rem;
   font-family: 'Merriweather', sans-serif;
   color: var(--accent);
@@ -2699,13 +2708,14 @@ html, body{
   display: grid;
   grid-template-columns: 90px 1fr;
   gap: 12px;
-  align-items: start;
+  align-items: center;
 }
 .mini-time{
   font-weight: 600;
   color: var(--brown);
   font-size: 14px;
-  padding-top: 12px;
+  padding-top: 0;
+  text-align: center;
 }
 .mini-card{
   background: rgba(255,255,255,0.92);
@@ -2731,29 +2741,59 @@ html, body{
 .story-wrap{
   margin-top: 18px;
   display: grid;
-  gap: 14px;
+  gap: 22px;
 }
-.story-item{
+.story-year-group{
   display: grid;
-  grid-template-columns: 16px 1fr;
-  gap: 12px;
-  align-items: start;
+  gap: 8px;
 }
-.story-dot{
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--accent);
-  margin-top: 18px;
-  box-shadow: 0 0 0 4px rgba(0,0,0,0.03);
+.story-year-marker{
+  justify-self: start;
+  margin-left: 22px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(191,155,115,0.16);
+  color: var(--brown);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.story-year-events{
+  display: grid;
+  gap: 12px;
+  margin-left: 22px;
 }
 .story-card{
+  position: relative;
   background: rgba(255,255,255,0.92);
   border: 1px solid rgba(0,0,0,0.06);
   border-radius: 16px;
   padding: 14px 16px;
   box-shadow: 0 10px 22px rgba(0,0,0,0.06);
   text-align: left;
+}
+.story-year-events .story-card::before{
+  content: "";
+  position: absolute;
+  left: -19px;
+  top: 18px;
+  z-index: 1;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.9);
+}
+.story-year-events .story-card-connect::after{
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: -15px;
+  top: 23px;
+  width: 2px;
+  height: calc(100% + 12px);
+  background: var(--accent);
+  opacity: 0.65;
 }
 .story-card h3{
   margin: 0 0 6px;
