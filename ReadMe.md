@@ -6,10 +6,11 @@ A digital wedding invitation website created to make wedding invitations more be
 
 <div align="center">
 
-  <h1>Digital Wedding Invitation</h1>
-  <br />
-  
-  [Explore the Invitation](YOUR_DEPLOYED_WEBSITE_URL)
+  <p align="center">
+  <a href="https://chrstyamber.github.io/digital-wedding-card/">
+    <strong>♡ View Live Demo ♡</strong>
+  </a>
+  </p>
 
 </div>
 
