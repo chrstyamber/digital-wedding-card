@@ -1193,6 +1193,18 @@ form label { font-weight: normal !important; }
   background: #153f7e !important;
   border-color: #153f7e !important;
 }
+#open-invitation.btn-primary {
+  background: var(--brown);
+  border-color: var(--brown);
+  color: #fff;
+}
+#open-invitation.btn-primary:hover,
+#open-invitation.btn-primary:focus,
+#open-invitation.btn-primary:active {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #fff;
+}
 .btn-primary.btn-outline {
   background: transparent;
   color: var(--primary);
@@ -1487,6 +1499,10 @@ form label { font-weight: normal !important; }
   height: 44px;
   border-radius: 50%;
   background: rgba(122,92,62,0.92); 
+  border: 0;
+  padding: 0;
+  appearance: none;
+  -webkit-appearance: none;
 
   display:flex;
   align-items:center;
@@ -1498,6 +1514,10 @@ form label { font-weight: normal !important; }
   touch-action: none;
   user-select: none;
   -webkit-user-select: none;
+}
+#music-toggle:focus-visible{
+  outline: 3px solid #fff;
+  outline-offset: 3px;
 }
 #music-toggle.is-dragging{ cursor: grabbing; }
 
@@ -1821,6 +1841,12 @@ form label { font-weight: normal !important; }
   white-space: nowrap;
 }
 .map-btn:hover { background: var(--accent); }
+.calendar-actions .map-btn {
+  display: block;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
 
 .divider {
   height: 1px;
@@ -1847,7 +1873,7 @@ form label { font-weight: normal !important; }
 
 #countdown-section {
   padding: 15rem 1.5rem;
-  padding-bottom: 10rem;
+  padding-bottom: 14rem;
   text-align: center;
 }
 
@@ -2645,6 +2671,20 @@ html, body{
   .deco-nav{ opacity: .95 !important; }
 }
 
+/* Keep venue buttons in the same layout as the invitation card changes width. */
+#invite-section .invite-card .map-actions {
+  display: flex;
+  flex-direction: row;
+  width: min(100%, 300px);
+  max-width: 300px;
+  gap: 8px;
+}
+#invite-section .invite-card .map-actions .map-btn {
+  width: auto;
+  min-width: 0;
+  flex: 1 1 0;
+}
+
 /* ===============================
    PREMIUM FEATURES (Itinerary + Love Story + FAQ)
    =============================== */
@@ -2687,11 +2727,6 @@ html, body{
   color: #8a7a6a;
   line-height: 1.6;
 }
-@media (max-width: 480px){
-  .mini-item{ grid-template-columns: 1fr; }
-  .mini-time{ padding-top: 0; opacity: .75; text-align: left; }
-}
-
 /* Love story */
 .story-wrap{
   margin-top: 18px;

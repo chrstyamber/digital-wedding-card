@@ -76,8 +76,8 @@
   <!-- Floating Button -->
   <div id="floating-button" class="float"> 
     <audio id="bg-music" src="audio/[They Long To Be] Close To You.mp3" loop></audio>
-    <div id="music-toggle" role="button" tabindex="0" aria-label="Toggle music"></div>
   </div>
+  <button id="music-toggle" type="button" aria-label="Mute music" aria-pressed="false"></button>
 
   <!-- Opening Page -->
   <div id="overlay">
@@ -149,33 +149,8 @@
           <div class="countdown-item"><div class="title">Minutes</div><span id="minutes">0</span></div>
           <div class="countdown-item"><div class="title">Seconds</div><span id="seconds">0</span></div>
         </div>
-
-        <div class="add-calendar-actions">
-          <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Our+Wedding&dates=20261226T090000/20261226T120000&details=Join+us+for+our+wedding!&location=Basilica+Shrine+of+St.+Mary,+Wilmington,+NC,+USA&sf=true&output=xml"
-             target="_blank"
-             class="add-calendar-btn">
-            <img src="images/calendar.png" alt="" style="width:30px; height:auto; margin-right:6px;">
-            Add to Calendar
-          </a>
-        </div>
-
       </div>
     </section>
-
-    <div class="add-calendar-actions" style="margin-top: 12px;">
-  <a id="waReminderBtn" target="_blank" class="add-calendar-btn" style="background:#5a4632;">
-    <img src="images/whatsapp.png" alt="" style="width:26px; height:auto; margin-right:6px;">
-    Remind Me (WhatsApp)
-  </a>
-</div>
-
-<div class="add-calendar-actions" style="margin-top: 12px;">
-  <button type="button" class="add-calendar-btn" onclick="downloadWeddingICS()"
-          style="border:none; cursor:pointer;">
-    <img src="images/calendar.png" alt="" style="width:30px; height:auto; margin-right:6px;">
-    Add to iPhone Calendar
-  </button>
-</div>
 
     <!-- Bride & Groom -->
     <section id="fh5co-couple" style="background:url('images/background/repeat-background/so-white.png') repeat;">
@@ -283,7 +258,9 @@
 
               <div class="map-actions">
                 <a href="https://maps.app.goo.gl/V9SSR7a35PQGvMA99" class="map-btn">Google Maps</a>
-                <a href="https://ul.waze.com/ul?place=ChIJK8a8WM8fqokRoo6t_iEOXLU&ll=34.23223860%2C-77.94318310&navigate=yes" class="map-btn">Waze</a>
+              </div>
+              <div class="map-actions calendar-actions">
+                <button type="button" class="map-btn" onclick="downloadVenueICS('matrimony')">Add to Calendar</button>
               </div>
 
               <div class="divider"></div>
@@ -302,7 +279,9 @@
 
               <div class="map-actions">
                 <a href="https://maps.app.goo.gl/1ZNH8bqPowSiWzGd9" class="map-btn">Google Maps</a>
-                <a href="https://ul.waze.com/ul?venue_id=184877398.1848642910.3843961" class="map-btn">Waze</a>
+              </div>
+              <div class="map-actions calendar-actions">
+                <button type="button" class="map-btn" onclick="downloadVenueICS('reception')">Add to Calendar</button>
               </div>
 
               <br><br>
@@ -707,10 +686,14 @@
       if (savedPosition) {
         try {
           const position = JSON.parse(savedPosition);
-          toggleBtn.style.left = `${position.left}px`;
-          toggleBtn.style.top = `${position.top}px`;
-          toggleBtn.style.right = 'auto';
-          toggleBtn.style.bottom = 'auto';
+          if (Number.isFinite(position.left) && Number.isFinite(position.top)) {
+            const left = Math.max(0, Math.min(window.innerWidth - toggleBtn.offsetWidth, position.left));
+            const top = Math.max(0, Math.min(window.innerHeight - toggleBtn.offsetHeight, position.top));
+            toggleBtn.style.left = `${left}px`;
+            toggleBtn.style.top = `${top}px`;
+            toggleBtn.style.right = 'auto';
+            toggleBtn.style.bottom = 'auto';
+          }
         } catch (_) {}
       }
 
@@ -765,6 +748,8 @@
         if (suppressClick) { suppressClick = false; return; }
         bgMusic.muted = !bgMusic.muted;
         toggleBtn.classList.toggle('muted', bgMusic.muted);
+        toggleBtn.setAttribute('aria-pressed', String(bgMusic.muted));
+        toggleBtn.setAttribute('aria-label', bgMusic.muted ? 'Unmute music' : 'Mute music');
         if (!bgMusic.muted) bgMusic.play().catch(() => {});
       }
       toggleBtn.addEventListener('click', toggleMusic);
@@ -1062,31 +1047,41 @@ Address: 1733 Futch Creek Rd, Wilmington, NC 28411`);
     btn.href = `https://wa.me/?text=${msg}`;
   })();
 
-  // iPhone / Apple calendar (.ics)
-  function downloadWeddingICS() {
-    // Malaysia time = UTC+8
-    // Wedding starts 9:00 AM MYT = 01:00 UTC
+  // Download an individual venue event for Apple Calendar (.ics).
+  function downloadVenueICS(venue) {
+    const events = {
+      matrimony: {
+        uid: "holy-matrimony-20261226@conrad-belly",
+        start: "20261226T090000",
+        end: "20261226T100000",
+        summary: "Holy Matrimony - Conrad & Belly",
+        location: "Basilica Shrine of St. Mary, Wilmington, North Carolina, USA",
+        filename: "Holy-Matrimony-Conrad-Belly.ics"
+      },
+      reception: {
+        uid: "wedding-reception-20261226@conrad-belly",
+        start: "20261226T150000",
+        end: "20261226T160000",
+        summary: "Wedding Reception - Conrad & Belly",
+        location: "Cape Fear Country Club, Wilmington, North Carolina, USA",
+        filename: "Wedding-Reception-Conrad-Belly.ics"
+      }
+    };
+    const event = events[venue];
+    if (!event) return;
+    const escapeICS = value => value.replace(/\\/g, "\\\\").replace(/,/g, "\\,").replace(/;/g, "\\;").replace(/\n/g, "\\n");
+    const stamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
     const ics = `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Conrad & Belly Wedding//EN
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-UID:wedding-20261226@conrad-belly
-DTSTAMP:20260122T000000Z
-DTSTART:20261226T010000Z
-DTEND:20261226T155900Z
-SUMMARY:Conrad & Belly Wedding Day
-DESCRIPTION:Open the invitation from your Home Screen for details + photobooth.
-BEGIN:VALARM
-TRIGGER:-PT2H
-ACTION:DISPLAY
-DESCRIPTION:Wedding starts in 2 hours
-END:VALARM
-BEGIN:VALARM
-TRIGGER:-PT30M
-ACTION:DISPLAY
-DESCRIPTION:Wedding starts in 30 minutes
-END:VALARM
+UID:${event.uid}
+DTSTAMP:${stamp}
+DTSTART;TZID=America/New_York:${event.start}
+DTEND;TZID=America/New_York:${event.end}
+SUMMARY:${escapeICS(event.summary)}
+LOCATION:${escapeICS(event.location)}
 END:VEVENT
 END:VCALENDAR`;
 
@@ -1095,7 +1090,7 @@ END:VCALENDAR`;
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "Conrad-Belly-Wedding-Reminder.ics";
+    a.download = event.filename;
     a.click();
 
     URL.revokeObjectURL(url);
