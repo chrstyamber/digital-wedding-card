@@ -1,0 +1,44 @@
+/* Show overlay on desktop OR phone landscape; hide on phone portrait */
+
+#mobile-only-overlay{
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0,0,0,.85);
+  z-index: 99999;
+}
+
+#mobile-only-overlay .box{
+  width: min(460px, 92vw);
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 16px;
+  padding: 22px 18px;
+  text-align: center;
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
+
+#mobile-only-overlay h2{
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+#mobile-only-overlay p{
+  font-size: 14px;
+  margin: 0;
+  opacity: .9;
+}
+
+/* Show on desktop */
+@media (min-width: 769px){
+  #mobile-only-overlay{ display: flex; }
+}
+
+/* Show on landscape phones */
+@media (max-width: 768px) and (orientation: landscape){
+  #mobile-only-overlay{ display: flex; }
+}
